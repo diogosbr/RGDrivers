@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^RGDrivers\.Rproj$
+^LICENSE\.md$
+^README\.Rmd$
+^data-raw$
