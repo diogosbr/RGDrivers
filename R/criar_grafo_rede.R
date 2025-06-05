@@ -34,7 +34,13 @@ criar_grafo_rede <- function(rede, col_id, col_jus) {
     dplyr::filter(!is.na(from) & !is.na(to)) |>
     dplyr::mutate(across(everything(), as.character))
 
-  grafo <- igraph::graph_from_data_frame(edges, directed = TRUE, vertices = unique(df[[col_id]]))
+  # pega todos IDs de cotrecho e nutrjus, removendo NAs
+  vertices = unique(c(df[[col_id]], df[[col_jus]]))
+  vertices = vertices[!is.na(vertices)]
+
+  grafo <- igraph::graph_from_data_frame(edges,
+                                         directed = TRUE,
+                                         vertices = vertices)
 
   if (!igraph::is_dag(grafo)) {
     stop("A rede contém ciclos. O grafo não é DAG (grafo acíclico direcionado).")
