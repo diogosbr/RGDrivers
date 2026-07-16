@@ -1,7 +1,7 @@
 Package: RGDrivers
 Title: Tools for Stream Network Analysis
 Version: 0.1.0
-Authors@R: c(person("Diogo", "Rocha", email = "diogo@gmail.com", role = c("aut", "cre")), person("Renata", "Capellão", email = "renatacapellao@gmail.com", role = "aut"), person("Luiz", "Oliveira", email = "gustavo.if.ufrj@gmail.com", role = "aut"))
+Authors@R: c(person("Diogo S. B.", "Rocha", email = "diogo@gmail.com", role = c("aut", "cre")), person("Renata T.", "Capellão", email = "renatacapellao@gmail.com", role = "aut"), person("Luiz Gustavo", "de Oliveira", email = "gustavo.if.ufrj@gmail.com", role = "aut"))
 Description: Provides tools for analyzing stream networks, including graph
     construction, calculation of Link Magnitude (Shreve stream order),
     D-LINK, and export of spatial data.
