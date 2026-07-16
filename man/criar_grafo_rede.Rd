@@ -7,18 +7,18 @@
 criar_grafo_rede(rede, col_id, col_jus)
 }
 \arguments{
-\item{rede}{Objeto \code{sf} ou \code{SpatVector} representando os trechos da rede hidrográfica}
+\item{rede}{Objeto \code{sf} ou \code{SpatVector} representando os trechos da rede hidrografica}
 
-\item{col_id}{Nome da coluna com o ID único de cada trecho}
+\item{col_id}{Nome da coluna com o ID unico de cada trecho}
 
 \item{col_jus}{Nome da coluna com o ID do trecho jusante}
 }
 \value{
-Objeto \code{igraph} direcionado representando a rede hidrográfica
+Objeto \code{igraph} direcionado representando a rede hidrografica
 }
 \description{
-Esta função constrói um grafo \code{igraph} a partir de um objeto \code{sf} ou \code{SpatVector} contendo trechos fluviais.
-É necessário que existam colunas com IDs únicos dos trechos e seus respectivos trechos jusantes.
+Esta funcao constroi um grafo \code{igraph} a partir de um objeto \code{sf} ou \code{SpatVector} contendo trechos fluviais.
+E necessario que existam colunas com IDs unicos dos trechos e seus respectivos trechos jusantes.
 }
 \examples{
 library(igraph)

@@ -1,3 +1,3 @@
-# RGDrivers (development version)
+# RGDrivers 0.1.0
 
 * Initial CRAN submission.

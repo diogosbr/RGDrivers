@@ -24,7 +24,7 @@ criar_rede_hidrografica(
 Objeto \code{igraph} direcionado
 }
 \description{
-A função constrói um objeto \code{igraph} a partir de um \code{sf} de trechos fluviais com colunas de ID e jusante.
+A funcao constroi um objeto \code{igraph} a partir de um \code{sf} de trechos fluviais com colunas de ID e jusante.
 }
 \examples{
 library(sf)
@@ -42,6 +42,11 @@ dados <- data.frame(
 
 sf_trechos <- st_sf(dados, geometry = linhas)
 
-g <- criar_rede_hidrografica(sf_trechos, col_id = "cotrecho", col_jus = "nutrjus", col_comprimento = "comprimento")
+g <- criar_rede_hidrografica(
+  sf_trechos,
+  col_id = "cotrecho",
+  col_jus = "nutrjus",
+  col_comprimento = "comprimento"
+)
 plot(g)
 }

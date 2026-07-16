@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# RGDrivers <img src="man/figures/logo.png" align="right" height="120" />
+# RGDrivers
 
 <!-- badges: start -->
 ![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)

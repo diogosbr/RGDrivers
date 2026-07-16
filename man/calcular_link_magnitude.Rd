@@ -2,21 +2,24 @@
 % Please edit documentation in R/calcular_link_magnitude.R
 \name{calcular_link_magnitude}
 \alias{calcular_link_magnitude}
-\title{Calcula Link Magnitude (Shreve) de uma rede hidrográfica}
+\title{Calcula o Link Magnitude (Shreve) para uma rede hidrografica}
 \usage{
 calcular_link_magnitude(grafo)
 }
 \arguments{
-\item{grafo}{Objeto \code{igraph} direcionado representando a rede hidrográfica}
+\item{grafo}{Objeto \code{igraph} direcionado representando a rede hidrografica (deve ser um DAG).}
 }
 \value{
-Vetor nomeado com valores inteiros de link magnitude para cada nó
+Um vetor nomeado de inteiros, indicando o Link Magnitude de cada no (trecho) da rede.
 }
 \description{
-Esta função calcula o Link Magnitude (ordem de Shreve) para cada trecho da rede fluvial,
-assumindo que a rede é um grafo acíclico direcionado (DAG).
+Esta funcao calcula o Link Magnitude (tambem conhecido como ordem de Shreve) para cada trecho de uma rede hidrografica,
+assumindo que a rede esta representada como um grafo aciclico direcionado (DAG).
+O Link Magnitude de um trecho corresponde ao numero total de caminhos independentes desde as nascentes ate aquele trecho,
+somando os valores dos predecessores de cada no.
 }
 \examples{
 g <- igraph::make_graph(edges = c("1", "2", "2", "3", "3", "4"), directed = TRUE)
 calcular_link_magnitude(g)
+
 }

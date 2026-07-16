@@ -10,7 +10,7 @@ test_that("pipeline completo de ordem fluvial funciona com dados simulados", {
     "LINESTRING(0 0, 1 1)",
     "LINESTRING(1 1, 2 2)",
     "LINESTRING(2 2, 3 3)"
-  ), type = "lines", crs = "EPSG:4326")
+  ), crs = "EPSG:4326")
 
   # Adicionar atributos simulados
   linhas$cotrecho <- c(1, 2, 3)

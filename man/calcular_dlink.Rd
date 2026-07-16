@@ -7,9 +7,9 @@
 calcular_dlink(df, col_id, col_jus, col_ordem)
 }
 \arguments{
-\item{df}{Data frame contendo os trechos da rede hidrográfica}
+\item{df}{Data frame contendo os trechos da rede hidrografica}
 
-\item{col_id}{Nome da coluna com ID único dos trechos (ex: "cotrecho")}
+\item{col_id}{Nome da coluna com ID unico dos trechos (ex: "cotrecho")}
 
 \item{col_jus}{Nome da coluna com o ID do trecho jusante (ex: "nutrjus")}
 
@@ -19,7 +19,7 @@ calcular_dlink(df, col_id, col_jus, col_ordem)
 O mesmo \code{df}, com uma nova coluna \code{D_LINK}
 }
 \description{
-Esta função adiciona a uma tabela de trechos fluviais a coluna \code{D_LINK}, que representa
+Esta funcao adiciona a uma tabela de trechos fluviais a coluna \code{D_LINK}, que representa
 o valor da ordem (ex: Link Magnitude) do trecho jusante.
 }
 \examples{

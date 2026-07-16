@@ -14,26 +14,26 @@ gravar_rede_com_ordens(
 )
 }
 \arguments{
-\item{vetor_original}{Objeto \code{SpatVector} original (rede hidrográfica)}
+\item{vetor_original}{Objeto \code{SpatVector} original (rede hidrografica)}
 
 \item{df_atualizado}{Data frame contendo os IDs dos trechos e as colunas novas}
 
-\item{col_id}{Nome da coluna de identificação única dos trechos (ex: "cotrecho")}
+\item{col_id}{Nome da coluna de identificacao unica dos trechos (ex: "cotrecho")}
 
-\item{colunas_adicionais}{Vetor com os nomes das colunas que serão adicionadas ao vetor}
+\item{colunas_adicionais}{Vetor com os nomes das colunas que serao adicionadas ao vetor}
 
 \item{caminho_saida}{Caminho completo para salvar o arquivo (ex: "saida.gpkg")}
 
-\item{overwrite}{Lógico, se TRUE permite sobrescrever o arquivo existente}
+\item{overwrite}{Logico, se TRUE permite sobrescrever o arquivo existente}
 }
 \value{
 NULL (salva arquivo no disco)
 }
 \description{
-Esta função insere novas colunas (ex: \code{link_mag}, \code{D_LINK}) em um objeto \code{SpatVector}
+Esta funcao insere novas colunas (ex: \code{link_mag}, \code{D_LINK}) em um objeto \code{SpatVector}
 a partir de um \code{data.frame} atualizado e o grava em disco.
 }
 \examples{
-# Exemplo hipotético
+# Exemplo hipotetico
 # gravar_rede_com_ordens(vetor, df_atualizado, "id", c("link_mag", "D_LINK"), "saida.gpkg")
 }

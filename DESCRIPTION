@@ -2,12 +2,15 @@ Package: RGDrivers
 Title: Ferramentas para Análise de Redes Hidrográficas
 Version: 0.1.0
 Authors@R: c(person("Diogo", "Rocha", email = "diogo@gmail.com", role = c("aut", "cre")), person("Renata", "Capellão", email = "renatacapellao@gmail.com", role = "aut"), person("Luiz", "Oliveira", email = "gustavo.if.ufrj@gmail.com", role = "aut"))
-Description: Um pacote para análise de redes hidrográficas, incluindo construção de grafos, cálculo de Link Magnitude (Shreve), D-LINK e exportação de dados espaciais.
+Description: Fornece ferramentas para análise de redes hidrográficas, incluindo
+    construção de grafos, cálculo de Link Magnitude (Shreve), D-LINK e
+    exportação de dados espaciais.
 License: MIT + file LICENSE
+URL: https://github.com/diogosbr/RGDrivers
+BugReports: https://github.com/diogosbr/RGDrivers/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 Depends: R (>= 3.5)
 Imports:
     terra,
@@ -19,4 +22,6 @@ Suggests:
     testthat (>= 3.0.0),
     knitr,
     rmarkdown
+VignetteBuilder: knitr
 Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0

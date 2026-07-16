@@ -16,4 +16,62 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(RGDrivers)
+library(terra)
+```
+
+## Introdução
+
+O `RGDrivers` fornece ferramentas para análise de redes hidrográficas, incluindo
+a construção de grafos direcionados a partir de trechos fluviais, o cálculo do
+Link Magnitude (ordem de Shreve) e do D-LINK (ordem do trecho jusante), e a
+exportação dos resultados de volta para um arquivo espacial.
+
+Este vignette usa o pequeno conjunto de trechos fluviais de exemplo incluído
+no pacote (`inst/extdata/rede_exemplo.gpkg`).
+
+## Carregando os dados de exemplo
+
+```{r}
+rede <- vect(system.file("extdata", "rede_exemplo.gpkg", package = "RGDrivers"))
+rede
+```
+
+## Criando o grafo direcionado
+
+```{r}
+g <- criar_grafo_rede(rede, col_id = "id", col_jus = "jus")
+g
+```
+
+## Calculando o Link Magnitude (Shreve)
+
+```{r}
+lm <- calcular_link_magnitude(g)
+lm
+```
+
+## Calculando o D-LINK
+
+```{r}
+df <- as.data.frame(rede)
+df$link_mag <- lm[as.character(df$id)]
+df <- calcular_dlink(df, col_id = "id", col_jus = "jus", col_ordem = "link_mag")
+df
+```
+
+## Gravando o resultado em um novo vetor espacial
+
+```{r}
+rede$link_mag <- df$link_mag
+rede$D_LINK <- df$D_LINK
+
+saida <- tempfile(fileext = ".gpkg")
+gravar_rede_com_ordens(
+  vetor_original = rede,
+  df_atualizado = df,
+  col_id = "id",
+  colunas_adicionais = c("link_mag", "D_LINK"),
+  caminho_saida = saida
+)
+file.exists(saida)
 ```

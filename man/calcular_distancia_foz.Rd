@@ -2,20 +2,28 @@
 % Please edit documentation in R/calcular_distancia_foz.R
 \name{calcular_distancia_foz}
 \alias{calcular_distancia_foz}
-\title{Calcula a distância acumulada até a foz}
+\title{Calcula a distancia acumulada ate a foz}
 \usage{
 calcular_distancia_foz(rede, foz, peso = "length_km")
 }
 \arguments{
-\item{rede}{Objeto \code{igraph} representando a rede hidrográfica (com pesos nas arestas)}
+\item{rede}{Objeto \code{igraph} representando a rede hidrografica (com pesos nas arestas)}
 
-\item{foz}{Vetor de IDs dos nós que representam a foz}
+\item{foz}{Vetor de IDs dos nos que representam a foz}
 
 \item{peso}{Nome do atributo de peso nas arestas (ex: 'length_km')}
 }
 \value{
-Vetor nomeado com distâncias acumuladas até a foz
+Vetor nomeado com distancias acumuladas ate a foz
 }
 \description{
-Esta função calcula a distância de cada trecho fluvial até a foz usando grafos direcionais.
+Esta funcao calcula a distancia de cada trecho fluvial ate a foz usando grafos direcionais.
+}
+\examples{
+g <- igraph::graph_from_edgelist(
+  matrix(c("1", "2", "2", "3", "3", "4"), byrow = TRUE, ncol = 2),
+  directed = TRUE
+)
+igraph::E(g)$length_km <- c(2, 3, 4)
+calcular_distancia_foz(g, foz = "4", peso = "length_km")
 }

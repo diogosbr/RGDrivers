@@ -6,13 +6,22 @@
 \alias{RGDrivers-package}
 \title{RGDrivers: Ferramentas para Análise de Redes Hidrográficas}
 \description{
-Um pacote para análise de redes hidrográficas, incluindo construção de grafos, cálculo de Link Magnitude (Shreve), D-LINK e exportação de dados espaciais.
+Fornece ferramentas para análise de redes hidrográficas, incluindo construção de grafos, cálculo de Link Magnitude (Shreve), D-LINK e exportação de dados espaciais.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/diogosbr/RGDrivers}
+  \item Report bugs at \url{https://github.com/diogosbr/RGDrivers/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Diogo Rocha \email{diogo@gmail.com}
 
 Authors:
 \itemize{
+  \item Diogo Rocha \email{diogo@gmail.com}
   \item Renata Capellão \email{renatacapellao@gmail.com}
   \item Luiz Oliveira \email{gustavo.if.ufrj@gmail.com}
 }

@@ -1,14 +1,16 @@
 #' Cria grafo direcionado a partir de rede fluvial
 #'
-#' Esta função constrói um grafo `igraph` a partir de um objeto `sf` ou `SpatVector` contendo trechos fluviais.
-#' É necessário que existam colunas com IDs únicos dos trechos e seus respectivos trechos jusantes.
+#' Esta funcao constroi um grafo `igraph` a partir de um objeto `sf` ou `SpatVector` contendo trechos fluviais.
+#' E necessario que existam colunas com IDs unicos dos trechos e seus respectivos trechos jusantes.
 #'
-#' @param rede Objeto `sf` ou `SpatVector` representando os trechos da rede hidrográfica
-#' @param col_id Nome da coluna com o ID único de cada trecho
+#' @param rede Objeto `sf` ou `SpatVector` representando os trechos da rede hidrografica
+#' @param col_id Nome da coluna com o ID unico de cada trecho
 #' @param col_jus Nome da coluna com o ID do trecho jusante
 #'
-#' @return Objeto `igraph` direcionado representando a rede hidrográfica
+#' @return Objeto `igraph` direcionado representando a rede hidrografica
 #' @export
+#'
+#' @importFrom rlang .data
 #'
 #' @examples
 #' library(igraph)
@@ -27,12 +29,12 @@ criar_grafo_rede <- function(rede, col_id, col_jus) {
     stop("O objeto deve ser do tipo 'sf' ou 'SpatVector'")
   }
 
-  df <- if (inherits(rede, "SpatVector")) as.data.frame(rede) else st_drop_geometry(rede)
+  df <- if (inherits(rede, "SpatVector")) as.data.frame(rede) else sf::st_drop_geometry(rede)
 
   edges <- df |>
     dplyr::select(from = dplyr::all_of(col_id), to = dplyr::all_of(col_jus)) |>
-    dplyr::filter(!is.na(from) & !is.na(to)) |>
-    dplyr::mutate(across(everything(), as.character))
+    dplyr::filter(!is.na(.data$from) & !is.na(.data$to)) |>
+    dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
 
   # pega todos IDs de cotrecho e nutrjus, removendo NAs
   vertices = unique(c(df[[col_id]], df[[col_jus]]))
@@ -43,7 +45,7 @@ criar_grafo_rede <- function(rede, col_id, col_jus) {
                                          vertices = vertices)
 
   if (!igraph::is_dag(grafo)) {
-    stop("A rede contém ciclos. O grafo não é DAG (grafo acíclico direcionado).")
+    stop("A rede contem ciclos. O grafo nao e DAG (grafo aciclico direcionado).")
   }
 
   return(grafo)

@@ -1,6 +1,6 @@
 #' Cria grafo direcionado a partir de trechos fluviais
 #'
-#' A função constrói um objeto `igraph` a partir de um `sf` de trechos fluviais com colunas de ID e jusante.
+#' A funcao constroi um objeto `igraph` a partir de um `sf` de trechos fluviais com colunas de ID e jusante.
 #'
 #' @param sf_trechos Objeto `sf` com geometrias lineares e colunas de ID (`col_id`) e jusante (`col_jus`)
 #' @param col_id Nome da coluna com ID do trecho (ex: "cotrecho")
@@ -26,14 +26,19 @@
 #'
 #' sf_trechos <- st_sf(dados, geometry = linhas)
 #'
-#' g <- criar_rede_hidrografica(sf_trechos, col_id = "cotrecho", col_jus = "nutrjus", col_comprimento = "comprimento")
+#' g <- criar_rede_hidrografica(
+#'   sf_trechos,
+#'   col_id = "cotrecho",
+#'   col_jus = "nutrjus",
+#'   col_comprimento = "comprimento"
+#' )
 #' plot(g)
 criar_rede_hidrografica <- function(sf_trechos, col_id = "cotrecho", col_jus = "nutrjus", col_comprimento = NULL) {
   stopifnot("sf" %in% class(sf_trechos))
   ids <- sf_trechos[[col_id]]
   jus <- sf_trechos[[col_jus]]
 
-  arestas <- na.omit(data.frame(from = ids, to = jus))
+  arestas <- stats::na.omit(data.frame(from = ids, to = jus))
   g <- igraph::graph_from_data_frame(arestas, directed = TRUE, vertices = ids)
 
   if (!is.null(col_comprimento)) {
