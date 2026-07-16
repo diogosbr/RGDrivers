@@ -1,13 +1,13 @@
-test_that("criar_grafo_rede funciona com objeto sf e ids simples", {
+test_that("create_network_graph works with an sf object and simple ids", {
   library(sf)
-  linhas <- st_sfc(
+  lines <- st_sfc(
     st_linestring(matrix(c(0, 0, 1, 1), ncol = 2, byrow = TRUE)),
     st_linestring(matrix(c(1, 1, 2, 2), ncol = 2, byrow = TRUE)),
     st_linestring(matrix(c(2, 2, 3, 3), ncol = 2, byrow = TRUE))
   )
-  rede <- st_sf(id = c(1, 2, 3), jus = c(2, 3, NA), geometry = linhas)
+  network <- st_sf(id = c(1, 2, 3), downstream = c(2, 3, NA), geometry = lines)
 
-  g <- criar_grafo_rede(rede, col_id = "id", col_jus = "jus")
+  g <- create_network_graph(network, col_id = "id", col_downstream = "downstream")
 
   expect_s3_class(g, "igraph")
   expect_true(igraph::is_dag(g))

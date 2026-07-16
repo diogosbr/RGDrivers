@@ -4,9 +4,9 @@
 \name{RGDrivers-package}
 \alias{RGDrivers}
 \alias{RGDrivers-package}
-\title{RGDrivers: Ferramentas para Análise de Redes Hidrográficas}
+\title{RGDrivers: Tools for Stream Network Analysis}
 \description{
-Fornece ferramentas para análise de redes hidrográficas, incluindo construção de grafos, cálculo de Link Magnitude (Shreve), D-LINK e exportação de dados espaciais.
+Provides tools for analyzing stream networks, including graph construction, calculation of Link Magnitude (Shreve stream order), D-LINK, and export of spatial data.
 }
 \seealso{
 Useful links:

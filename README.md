@@ -9,64 +9,66 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 <!-- badges: end -->
 
-Pacote R para análise de redes hidrográficas com foco em métricas de
-conectividade, cálculo de ordens (como Link Magnitude) e manipulação
-espacial integrada com `terra`, `igraph` e `sf`.
+R package for stream network analysis, focused on connectivity
+metrics, order calculation (such as Link Magnitude), and spatial
+manipulation integrated with `terra`, `igraph`, and `sf`.
 
 ------------------------------------------------------------------------
 
-## ✨ Instalação
+## Installation
 
 ``` r
-# Em desenvolvimento via GitHub
+# Development version via GitHub
 # install.packages("devtools")
 devtools::install_github("diogosbr/RGDrivers")
 ```
 
 ------------------------------------------------------------------------
 
-## 🚀 Exemplo rápido
+## Quick example
 
-Este exemplo usa um pequeno conjunto de trechos lineares fictícios
-incluído no pacote.
+This example uses a small set of fictional line reaches included in
+the package.
 
 ``` r
 library(RGDrivers)
 library(terra)
 
-# 1. Carregar dados de exemplo
-rede <- vect(system.file("extdata/rede_exemplo.gpkg", package = "RGDrivers"))
+# 1. Load sample data
+network <- vect(system.file("extdata/rede_exemplo.gpkg", package = "RGDrivers"))
 
-# 2. Criar grafo
-g <- criar_grafo_rede(rede, col_id = "id", col_jus = "jus")
+# 2. Create graph
+g <- create_network_graph(network, col_id = "id", col_downstream = "jus")
 
-# 3. Calcular Link Magnitude
-lm <- calcular_link_magnitude(g)
+# 3. Calculate Link Magnitude
+lm <- calculate_link_magnitude(g)
 
-# 4. Adicionar ao data.frame
-df <- as.data.frame(rede)
+# 4. Add to data.frame
+df <- as.data.frame(network)
 df$link_mag <- lm[as.character(df$id)]
-df <- calcular_dlink(df, col_id = "id", col_jus = "jus", col_ordem = "link_mag")
+df <- calculate_dlink(df, col_id = "id", col_downstream = "jus", col_order = "link_mag")
 
-# 5. Atribuir ao vetor
-rede$link_mag <- df$link_mag
-rede$D_LINK <- df$D_LINK
+# 5. Assign back to the vector
+network$link_mag <- df$link_mag
+network$D_LINK <- df$D_LINK
 
-# 6. Visualizar resultado
-plot(rede, col = rede$link_mag, main = "Link Magnitude")
+# 6. Plot the result
+plot(network, col = network$link_mag, main = "Link Magnitude")
 ```
 
 ------------------------------------------------------------------------
 
-## 📚 Funções principais
+## Main functions
 
-- `criar_grafo_rede()` – cria grafo a partir de dados de trechos
-- `calcular_link_magnitude()` – calcula a ordem de Shreve
-- `calcular_dlink()` – obtém ordem do trecho jusante
-- `gravar_rede_com_ordens()` – salva vetor com ordens
+- `create_network_graph()` – creates a graph from reach data
+- `calculate_link_magnitude()` – calculates the Shreve order
+- `calculate_dlink()` – obtains the downstream reach order
+- `write_network_with_orders()` – saves a vector with orders
+- `create_stream_network()` – creates a graph directly from `sf` reaches
+- `calculate_outlet_distance()` – accumulated distance to the outlet
 
 ------------------------------------------------------------------------
 
-## 📄 Licença
+## License
 
-Este pacote está licenciado sob os termos da licença MIT.
+This package is licensed under the terms of the MIT license.
