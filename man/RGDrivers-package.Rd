@@ -23,7 +23,6 @@ Authors:
 \itemize{
   \item Diogo S. B. Rocha \email{diogosbr@gmail.com}
   \item Renata T. Capellão \email{renatacapellao@gmail.com}
-  \item Luiz Gustavo de Oliveira \email{gustavo.if.ufrj@gmail.com}
 }
 
 }
