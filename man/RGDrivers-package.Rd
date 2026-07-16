@@ -17,11 +17,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Diogo S. B. Rocha \email{diogo@gmail.com}
+\strong{Maintainer}: Diogo S. B. Rocha \email{diogosbr@gmail.com}
 
 Authors:
 \itemize{
-  \item Diogo S. B. Rocha \email{diogo@gmail.com}
+  \item Diogo S. B. Rocha \email{diogosbr@gmail.com}
   \item Renata T. Capellão \email{renatacapellao@gmail.com}
   \item Luiz Gustavo de Oliveira \email{gustavo.if.ufrj@gmail.com}
 }
