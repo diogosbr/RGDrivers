@@ -37,7 +37,6 @@ create_network_graph <- function(network, col_id, col_downstream) {
     dplyr::filter(!is.na(.data$from) & !is.na(.data$to)) |>
     dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
 
-  # collect all reach and downstream IDs, removing NAs
   vertices <- unique(c(df[[col_id]], df[[col_downstream]]))
   vertices <- vertices[!is.na(vertices)]
 

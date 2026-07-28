@@ -13,6 +13,20 @@
 #'
 #' @importFrom rlang :=
 #'
+#' @references
+#' Osborne, L. L., & Wiley, M. J. (1992). Influence of Tributary Spatial
+#' Position on the Structure of Warmwater Fish Communities. Canadian Journal
+#' of Fisheries and Aquatic Sciences, 49(4), 671-681. \doi{10.1139/f92-076}.
+#'
+#' Smith, T. A., & Kraft, C. E. (2005). Stream Fish Assemblages in Relation
+#' to Landscape Position and Local Habitat Variables. Transactions of the
+#' American Fisheries Society, 134(2), 430-440. \doi{10.1577/T03-051.1}.
+#'
+#' Thornbrugh, D. J., & Gido, K. B. (2010). Influence of spatial positioning
+#' within stream networks on fish assemblage structure in the Kansas River
+#' basin, USA. Canadian Journal of Fisheries and Aquatic Sciences, 67(1),
+#' 143-156. \doi{10.1139/f09-169}.
+#'
 #' @examples
 #' df <- data.frame(
 #'   id = c(1, 2, 3),

@@ -20,12 +20,10 @@
 calculate_outlet_distance <- function(network, outlet, weight = "length_km") {
   if (!inherits(network, "igraph")) stop("network must be an igraph object")
 
-  # Ensure vertices have names
   if (is.null(igraph::V(network)$name)) {
     igraph::V(network)$name <- as.character(seq_len(igraph::vcount(network)))
   }
 
-  # Ensure the weight attribute is present on the edges
   if (is.null(igraph::E(network)$weight)) {
     if (!weight %in% igraph::edge_attr_names(network)) stop(paste0("Edge does not have attribute '", weight, "'"))
     igraph::E(network)$weight <- igraph::edge_attr(network, weight)

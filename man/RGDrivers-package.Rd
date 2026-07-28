@@ -6,7 +6,7 @@
 \alias{RGDrivers-package}
 \title{RGDrivers: Stream Network Analysis}
 \description{
-Provides tools for analyzing stream networks, including graph construction, calculation of Link Magnitude, D-LINK, and export of spatial data. The Link Magnitude (Shreve stream order) method follows Shreve (1966) \doi{10.1086/627137}.
+Provides tools for analyzing stream networks, including graph construction, calculation of Link Magnitude, D-LINK, and export of spatial data. The Link Magnitude (Shreve stream order) method follows Shreve (1966) \doi{10.1086/627137}. The D-LINK metric follows Osborne & Wiley (1992) \doi{10.1139/f92-076}.
 }
 \seealso{
 Useful links:
