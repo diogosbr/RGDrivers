@@ -21,6 +21,10 @@ directed acyclic graph (DAG). The Link Magnitude of a reach corresponds to
 the total number of independent paths from the headwaters to that reach,
 summing the values of its predecessors.
 }
+\references{
+Shreve, R. L. (1966). Statistical Law of Stream Numbers. The Journal of
+Geology, 74(1), 17-37. \doi{10.1086/627137}.
+}
 \examples{
 g <- igraph::make_graph(edges = c("1", "2", "2", "3", "3", "4"), directed = TRUE)
 calculate_link_magnitude(g)

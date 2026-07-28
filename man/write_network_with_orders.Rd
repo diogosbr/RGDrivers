@@ -35,6 +35,21 @@ Inserts new columns (e.g. \code{link_mag}, \code{D_LINK}) into a
 disk.
 }
 \examples{
-# Hypothetical example
-# write_network_with_orders(vector, updated_df, "id", c("link_mag", "D_LINK"), "output.gpkg")
+lines <- terra::vect(c(
+  "LINESTRING(0 0, 1 1)",
+  "LINESTRING(1 1, 2 2)"
+), crs = "EPSG:4326")
+lines$id <- c(1, 2)
+
+updated_df <- data.frame(id = c(1, 2), link_mag = c(1, 2), D_LINK = c(2, NA))
+
+output_file <- tempfile(fileext = ".gpkg")
+write_network_with_orders(
+  original_vector = lines,
+  updated_df = updated_df,
+  col_id = "id",
+  additional_cols = c("link_mag", "D_LINK"),
+  output_path = output_file
+)
+file.exists(output_file)
 }
